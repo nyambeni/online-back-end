@@ -17,10 +17,10 @@ app.use(function (req, res, next) {
   });
 // api routes
 
- app.use('/', require('./route/registration'));
- app.use('/', require('./route/login'));
- app.use('/', require('./route/admin'));
- app.use('/', require('./route/index'));
+ app.use('/', require('./routes/registration'));
+ app.use('/', require('./routes/login'));
+ app.use('/', require('./routes/admin'));
+ app.use('/', require('./routes/index'));
  
 
 // start server
