@@ -2,8 +2,7 @@ const mysql = require('mysql');
 const express = require('express');
 const app = express();
 var cors = require('cors')
-const mysqlConn= require('./config/conn');
-const client = require('./route/client');
+const mysqlConn= require('./conn/con');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -17,14 +16,12 @@ app.use(function (req, res, next) {
     next();
   });
 // api routes
- app.use('/', require('./route/client'));
- app.use('/', require('./route/artisan'));
- app.use('/', require('./route/admin'));
- app.use('/', require('./route/categories'));
+
+ app.use('/', require('./route/registration'));
  app.use('/', require('./route/login'));
- app.use('/', require('./route/uploadPics'));
- app.use('/', require('./route/uploadDocs'));
- app.use('/', require('./route/uploadVideo'));
+ app.use('/', require('./route/admin'));
+ app.use('/', require('./route/index'));
+ 
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 5000;
