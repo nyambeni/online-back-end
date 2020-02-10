@@ -14,7 +14,7 @@ router.get('/than',(req,res)=>{
     
 });
 
-//Get all seller
+//Get an seller
 router.get('/than/:id',(req,res)=>{
     db.query('SELECT * FROM admin WHERE adminId =?',[req.params.id],(err,rows,fields)=>{
         if(!err)
@@ -40,10 +40,10 @@ router.delete('/than/:id',(req,res)=>{
 router.post('/than',(req,res)=>{
 
     let adm = req.body;
-    var sql = "SET @adminId = ?;SET @username = ?;SET @uPass = ?;\
-    CALL A(@adminId,@username,@uPass);";
+    var sql = "SET @id = ?;SET @username = ?;SET @contact = ?;SET @password = ?;\
+    CALL A(@id,@username,@contact,@password);";
 
-    db.query(sql,[adm.adminId,adm.username,adm.uPass],(err,rows,fields)=>{
+    db.query(sql,[adm.id,adm.username,adm.password,adm.password],(err,rows,fields)=>{
         if(!err)
             rows.forEach(element => {
                 if(element.constructor ==Array)
@@ -60,10 +60,10 @@ router.post('/than',(req,res)=>{
 router.put('/than',(req,res)=>{
 
     let adm = req.body;
-    var sql = "SET @adminId = ?;SET @username = ?;SET @uPass = ?;\
-    CALL A(@adminId,@username,@uPass);";
+    var sql = "SET @id = ?;SET @username = ?;SET @contact = ?;SET @password = ?;\
+    CALL A(@id,@username,@contact,@password);";
 
-    db.query(sql,[adm.adminId,adm.username,adm.uPass],(err,rows,fields)=>{
+    db.query(sql,[adm.id,adm.username,adm.password,adm.password],(err,rows,fields)=>{
         if(!err)
            res.send('Updated...');
         else

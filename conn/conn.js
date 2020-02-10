@@ -7,7 +7,7 @@ const mysqlConn =mysql.createConnection({
   host:'localhost',
   user:'root',
   password:'',
-  database:'icep2020',
+  database:'GiftBox',
   multipleStatements: true
 
 })
